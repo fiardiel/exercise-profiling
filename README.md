@@ -5,7 +5,7 @@
 ![All student using jmeter GUI](assets/all_student_gui.png)
     
 `/all_student` using jmeter CLI
-![All student using jmeter CLI](assets/all_student.png)
+![All student using jmeter CLI](assets/all_student_cli.png)
 
 
 ### /all-student-name
