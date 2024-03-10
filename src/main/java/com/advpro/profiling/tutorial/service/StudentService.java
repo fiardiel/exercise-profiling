@@ -24,17 +24,8 @@ public class StudentService {
     public List<StudentCourse> getAllStudentsWithCourses() {
         List<Student> students = studentRepository.findAll();
         List<StudentCourse> studentCourses = new ArrayList<>();
-
-        Map<Long, List<StudentCourse>> studentCourseMap = new HashMap<>();
-        List<StudentCourse> allStudentCourses = studentCourseRepository.findAll();
-
-        for (StudentCourse studentCourse : allStudentCourses) {
-            Long studentId = studentCourse.getStudent().getId();
-            studentCourseMap.computeIfAbsent(studentId, k -> new ArrayList<>()).add(studentCourse);
-        }
-
         for (Student student : students) {
-            List<StudentCourse> studentCoursesByStudent = studentCourseMap.getOrDefault(student.getId(), Collections.emptyList());
+            List<StudentCourse> studentCoursesByStudent = studentCourseRepository.findByStudentId(student.getId());
             for (StudentCourse studentCourseByStudent : studentCoursesByStudent) {
                 StudentCourse studentCourse = new StudentCourse();
                 studentCourse.setStudent(student);
@@ -42,7 +33,6 @@ public class StudentService {
                 studentCourses.add(studentCourse);
             }
         }
-
         return studentCourses;
     }
 
@@ -61,14 +51,11 @@ public class StudentService {
 
     public String joinStudentNames() {
         List<Student> students = studentRepository.findAll();
-        StringBuilder resultBuilder = new StringBuilder();
+        String result = "";
         for (Student student : students) {
-            resultBuilder.append(student.getName()).append(", ");
+            result += student.getName() + ", ";
         }
-        if (!resultBuilder.isEmpty()) {
-            resultBuilder.delete(resultBuilder.length() - 2, resultBuilder.length());
-        }
-        return resultBuilder.toString();
+        return result.substring(0, result.length() - 2);
     }
 }
 
