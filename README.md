@@ -44,7 +44,7 @@ find the maximum of an array. For the all student name, I changed the implementa
 into using a string builder to optimize the memory usage. We can see that it can go up to 50% of optimization by using
 the string builder implementation. For the all student part, I changed the implementation of using a list into 
 using a map. We can utilize the key value pair for studentCourseByStudent since we can store courses for a student, and
-accessing that student would only be O(1). The optimization is at a staggering 99% for this part.
+accessing that student would only be O(1). The optimization is at a staggering 96% for this part.
 
 ## Reflection
 1. The difference between the approach of performance testing with JMeter and profiling with IntelliJ Profiler is that
