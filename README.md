@@ -15,3 +15,8 @@
 
 `/all_student_name`
 ![All student name using jmeter CLI](assets/all_student_name_opt.png)
+ 
+I didn't do any optimization on the highest_gpa part as it was already the most appropriate way to 
+find the maximum of an array. For the all student name, I changed the implementation of using a list into
+using a map since we have a key of student (id) and can have many classes. We can see that the optimization is
+almost 50%
