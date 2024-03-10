@@ -1,6 +1,5 @@
 package com.advpro.profiling.tutorial.service;
 
-import com.advpro.profiling.tutorial.model.Course;
 import com.advpro.profiling.tutorial.model.Student;
 import com.advpro.profiling.tutorial.model.StudentCourse;
 import com.advpro.profiling.tutorial.repository.StudentCourseRepository;
